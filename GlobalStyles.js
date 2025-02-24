@@ -11,3 +11,6 @@ export const MapViewStyles = theme =>
       props: {},
     },
   });
+
+export const WebViewStyles = theme =>
+  StyleSheet.create({ 'Web View': { style: { flex: 1 }, props: {} } });

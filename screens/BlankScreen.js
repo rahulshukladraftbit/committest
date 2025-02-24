@@ -1,12 +1,13 @@
 import React from 'react';
 import { MapView } from '@draftbit/maps';
-import { ScreenContainer, withTheme } from '@draftbit/ui';
+import { ScreenContainer, WebView, withTheme } from '@draftbit/ui';
 import { useIsFocused } from '@react-navigation/native';
 import Purchases from 'react-native-purchases';
 import * as GlobalStyles from '../GlobalStyles.js';
 import palettes from '../themes/palettes';
 import Breakpoints from '../utils/Breakpoints';
 import * as StyleSheet from '../utils/StyleSheet';
+import imageSource from '../utils/imageSource';
 import useWindowDimensions from '../utils/useWindowDimensions';
 
 const BlankScreen = props => {
@@ -44,6 +45,24 @@ const BlankScreen = props => {
         apiKey={process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY}
         style={StyleSheet.applyWidth(
           GlobalStyles.MapViewStyles(theme)['Map View'].style,
+          dimensions.width
+        )}
+      />
+      <WebView
+        allowFileAccessFromFileURLs={false}
+        allowUniversalAccessFromFileURLs={false}
+        cacheEnabled={true}
+        incognito={false}
+        javaScriptCanOpenWindowsAutomatically={false}
+        javaScriptEnabled={true}
+        mediaPlaybackRequiresUserAction={false}
+        showsHorizontalScrollIndicator={true}
+        showsVerticalScrollIndicator={true}
+        source={imageSource('https://reactnative.dev')}
+        startInLoadingState={false}
+        {...GlobalStyles.WebViewStyles(theme)['Web View'].props}
+        style={StyleSheet.applyWidth(
+          GlobalStyles.WebViewStyles(theme)['Web View'].style,
           dimensions.width
         )}
       />
