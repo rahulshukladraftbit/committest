@@ -2,6 +2,7 @@ import React from 'react';
 import { MapView } from '@draftbit/maps';
 import { ScreenContainer, WebView, withTheme } from '@draftbit/ui';
 import { useIsFocused } from '@react-navigation/native';
+import { Text } from 'react-native';
 import Purchases from 'react-native-purchases';
 import * as GlobalStyles from '../GlobalStyles.js';
 import palettes from '../themes/palettes';
@@ -66,6 +67,21 @@ const BlankScreen = props => {
           dimensions.width
         )}
       />
+      <Text
+        accessible={true}
+        selectable={false}
+        {...GlobalStyles.TextStyles(theme)['Text'].props}
+        style={StyleSheet.applyWidth(
+          StyleSheet.compose(
+            GlobalStyles.TextStyles(theme)['Text'].style,
+            theme.typography.body1,
+            {}
+          ),
+          dimensions.width
+        )}
+      >
+        {'Lorem ipsum dolor sit amet'}
+      </Text>
     </ScreenContainer>
   );
 };

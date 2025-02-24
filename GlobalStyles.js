@@ -14,3 +14,8 @@ export const MapViewStyles = theme =>
 
 export const WebViewStyles = theme =>
   StyleSheet.create({ 'Web View': { style: { flex: 1 }, props: {} } });
+
+export const TextStyles = theme =>
+  StyleSheet.create({
+    Text: { style: { color: theme.colors.text.strong }, props: {} },
+  });
