@@ -10,6 +10,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { systemWeights } from 'react-native-typography';
 import LinkingConfiguration from './LinkingConfiguration';
 import BlankScreen from './screens/BlankScreen';
+import DoctorsListScreen from './screens/DoctorsListScreen';
 import palettes from './themes/palettes';
 import useWindowDimensions from './utils/useWindowDimensions';
 
@@ -72,6 +73,13 @@ export default function RootAppNavigator() {
           component={BlankScreen}
           options={({ navigation }) => ({
             title: 'Blank',
+          })}
+        />
+        <Stack.Screen
+          name="DoctorsListScreen"
+          component={DoctorsListScreen}
+          options={({ navigation }) => ({
+            title: 'Doctors List',
           })}
         />
       </Stack.Navigator>

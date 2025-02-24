@@ -1,6 +1,7 @@
 import { Image } from 'react-native';
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
+import { AntDesign, EvilIcons, FontAwesome } from '@expo/vector-icons';
 
 import IMAGES from './Images.js';
 
@@ -20,6 +21,11 @@ function cacheFonts(fonts) {
 
 export default function cacheAssetsAsync() {
   const imageAssets = cacheImages(Object.values(IMAGES));
+  const iconAssets = cacheFonts([
+    AntDesign.font,
+    EvilIcons.font,
+    FontAwesome.font,
+  ]);
 
-  return Promise.all([...imageAssets]);
+  return Promise.all([...imageAssets, ...iconAssets]);
 }
